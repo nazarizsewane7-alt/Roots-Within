@@ -1,0 +1,151 @@
+<!doctype html><html lang="fil"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'self'">
+<meta name="theme-color" content="#2b1d14"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Philosong</title>
+<style>
+:root{--bg:#f4ead6;--card:#fffaf0;--ink:#2b1d14;--mute:#6b5646;--gold:#b97a08;--green:#3f7a2e;--fire:#c9461f;--line:#e2d0ae;--hl:#f8e6b4;--bar:#2b1d14;--barink:#f6ecd9;--fs:18px}
+:root[data-t=dark]{--bg:#1a120d;--card:#26190f;--ink:#f6ecd9;--mute:#c9b79c;--gold:#e8b030;--green:#86c871;--fire:#ef7a52;--line:#4a3526;--hl:#3b2a15;--bar:#120b07}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif;padding:0 0 calc(130px + env(safe-area-inset-bottom));-webkit-text-size-adjust:100%}
+h1,h2,h3,h4,.serif,.read{font-family:Georgia,serif}
+header{position:sticky;top:0;z-index:20;background:var(--bar);color:var(--barink);padding:calc(8px + env(safe-area-inset-top)) 12px 0;}
+.hr{display:flex;align-items:center;gap:6px;min-height:44px}.hr b{flex:1;font:700 17px Georgia,serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+button,.btn{font:inherit;min-height:44px;min-width:44px;border:0;border-radius:22px;padding:0 16px;background:var(--line);color:var(--ink);cursor:pointer}
+header button{background:transparent;color:var(--barink);padding:0 10px;flex:none}
+.pb{height:3px;background:#0003;margin:0 -12px}.pb i{display:block;height:100%;width:0;background:var(--gold)}
+main{max-width:720px;margin:0 auto;padding:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin:0 0 14px}
+.cover{text-align:center}.cover h1{font-size:30px;margin:6px 0}.mute{color:var(--mute)}
+.gold{background:var(--gold);color:#fff}.gold:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px}.chips button{flex:none;border:1px solid var(--line);background:var(--card)}.chips button[aria-pressed=true]{background:var(--gold);color:#fff}
+input[type=search]{width:100%;min-height:44px;border-radius:22px;border:1px solid var(--line);padding:0 16px;background:var(--card);color:var(--ink);font:inherit;margin-bottom:8px}
+.tile{display:block;color:inherit;text-decoration:none;padding:0;overflow:hidden}.tile .art{height:96px}.tile div.t{padding:12px 16px}.tile h3{margin:0 0 4px;font-size:20px}
+.art svg{display:block;width:100%;height:100%}.hero{height:190px;border-radius:20px;overflow:hidden;margin-bottom:14px}
+.kick{color:var(--gold);font-weight:700}.quote{font:italic 21px/1.5 Georgia,serif;border-left:4px solid var(--gold);padding:4px 0 4px 14px;margin:14px 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:20px;margin:0 0 14px}summary{min-height:44px;padding:10px 16px;font:700 19px Georgia,serif;cursor:pointer}
+details>.in{padding:0 16px 16px}.read{font-size:var(--fs);line-height:1.8}.read p{margin:0 0 1em}.read h4{font-size:1.1em;margin:1.4em 0 .4em;color:var(--gold)}
+.read p.dc:first-letter{float:left;font-size:3.2em;line-height:.85;padding:4px 8px 0 0;color:var(--gold)}
+.bub{border-radius:16px;padding:10px 14px;margin:8px 0;max-width:92%}.bub.student{background:var(--hl)}.bub.ai{background:var(--line);margin-left:auto}.bub small{display:block;font-weight:700;color:var(--mute)}
+.badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:14px;padding:2px 10px;font-size:14px;margin:2px 4px 2px 0}.badge.q{border-color:var(--fire);color:var(--fire)}
+.bridge{display:flex;gap:6px;align-items:stretch;margin:10px 0}.bridge div{flex:1;background:var(--hl);border-radius:14px;padding:8px;text-align:center;font-size:14px}
+table{width:100%;border-collapse:collapse}td,th{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--bar);color:var(--barink);padding:8px 12px calc(8px + env(safe-area-inset-bottom));display:flex;gap:8px;justify-content:center}
+.dock a{flex:1;max-width:170px;text-align:center;line-height:44px;border-radius:22px;color:var(--barink);text-decoration:none}.dock a.on{background:var(--gold);color:#fff;font-weight:700}
+#mini{position:fixed;left:8px;right:8px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:29;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 10px;display:none;gap:6px;align-items:center;flex-wrap:wrap}
+#mini b{flex:1;min-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#mini input{flex:1 1 100%}#mini button{padding:0 10px}
+#toast{position:fixed;left:12px;right:12px;top:calc(70px + env(safe-area-inset-top));z-index:40;background:var(--gold);color:#fff;border-radius:16px;padding:12px;text-align:center;display:none}
+.lyr h4{margin:.8em 0 .2em;color:var(--gold)}.lyr p{margin:0;font:var(--fs) Georgia,serif}.lyr .cur{background:var(--hl)}
+.nav{display:flex;gap:8px;justify-content:space-between}.prog{height:10px;background:var(--line);border-radius:6px;overflow:hidden}.prog i{display:block;height:100%;background:var(--green);width:0}
+@keyframes sway{50%{transform:rotate(2deg)}}@keyframes tw{50%{opacity:.3}}.sway{transform-origin:bottom;transform-box:fill-box;animation:sway 5s ease-in-out infinite}.tw{animation:tw 3s infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="hr"><button id="home" aria-label="Home">⌂</button><b id="ttl"></b><button id="fm" aria-label="A−">A−</button><button id="fp" aria-label="A+">A+</button><button id="th" aria-label="Theme">◐</button></div><div class="pb"><i id="bar"></i></div></header>
+<div id="toast" role="status"></div><main id="app"></main>
+<div id="mini"><button id="pv" aria-label="Previous">⏮</button><button id="pp" aria-label="Play or pause">▶</button><button id="nx" aria-label="Next">⏭</button><b id="mt"></b><button id="lp" aria-label="Loop">↻</button><button id="sp" aria-label="Speed">1×</button><input id="sk" type="range" min="0" max="1000" value="0" aria-label="Seek"></div>
+<nav class="dock"><a href="#/" id="d1"></a><a href="#/thinkers" id="d2"></a><a href="#/about" id="d3"></a></nav>
+<script src="content.js"></script>
+<script>
+const APP=window.APP,M=APP.meta,L=M.uiLang||'fil',P=M.id+':';
+const STR={fil:{home:'Simula',thinkers:'Mga Thinker',about:'Tungkol',entries:'entry',songs:'kanta',ai:'AI-assisted',aiu:'Hindi pa tiyak ang AI',play:'Play lahat',search:'Maghanap…',all:'Lahat',song:'Kanta',think:'Pag-iisip ng Mag-aaral',first:'Unang naisip',dlg:'Usapan sa AI',fin:'Pagninilay at Kwento',lens:'Philosophy Lens',story:'Kwento',idea:'Ideya',you:'Ikaw',why:'Bakit',try:'Subukan',interp:'Interpretive reading para sa talakayan sa klase',prev:'Nauna',next:'Susunod',stu:'Mag-aaral',aib:'AI',nosong:'Walang kanta sa entry na ito.',err:'Kailangan ng internet minsan para ma-save ang kanta',upd:'May bagong bersyon — i-reload',decl:'Deklarasyon sa AI',cons:'Pahintulot: nakatago ang pangalan; alias lang ang ipinapakita.',off:'Offline-ready',saveall:'I-save lahat ng kanta',clear:'Burahin ang naka-save',a2h:'Add to Home Screen',and:'Android Chrome: menu ⋮ → Install app / Add to Home screen.',ios:'iPhone Safari: Share → Add to Home Screen.',ver:'Bersyon',cited:'Binanggit sa',none:'Walang resulta.',saved:'✓ saved',sound:'tunog',tools:'Check sa curriculum guide ang pangalan ng paksa.',cleared:'Nabura na'},
+ceb:{home:'Sugod',thinkers:'Mga Thinker',about:'Mahitungod',entries:'entry',songs:'kanta',ai:'AI-assisted',aiu:'Dili pa sigurado ang AI',play:'Play tanan',search:'Pangita…',all:'Tanan',song:'Kanta',think:'Panghunahuna sa Estudyante',first:'Unang gihunahuna',dlg:'Panag-istorya sa AI',fin:'Pagpamalandong ug Istorya',lens:'Philosophy Lens',story:'Istorya',idea:'Ideya',you:'Ikaw',why:'Ngano',try:'Sulayi',interp:'Interpretive reading para sa diskusyon sa klase',prev:'Nauna',next:'Sunod',stu:'Estudyante',aib:'AI',nosong:'Walay kanta ani nga entry.',err:'Kinahanglan og internet usahay aron ma-save ang kanta',upd:'Naay bag-ong bersyon — i-reload',decl:'Deklarasyon sa AI',cons:'Pagtugot: tagoon ang ngalan; alias ra ang ipakita.',off:'Offline-ready',saveall:'I-save tanang kanta',clear:'Papasa ang na-save',a2h:'Add to Home Screen',and:'Android Chrome: menu ⋮ → Install app.',ios:'iPhone Safari: Share → Add to Home Screen.',ver:'Bersyon',cited:'Gihisgotan sa',none:'Walay resulta.',saved:'✓ saved',sound:'tunog',tools:'I-check ang ngalan sa paksa sa curriculum guide.',cleared:'Napapas na'},
+en:{home:'Home',thinkers:'Thinkers',about:'About',entries:'entries',songs:'songs',ai:'AI-assisted',aiu:'AI use not confirmed',play:'Play all',search:'Search…',all:'All',song:'Song',think:'Student Thinking',first:'First thought',dlg:'AI dialogue',fin:'Reflection and Story',lens:'Philosophy Lens',story:'Story',idea:'Idea',you:'You',why:'Why',try:'Try it',interp:'Interpretive reading for class discussion',prev:'Previous',next:'Next',stu:'Student',aib:'AI',nosong:'This entry has no song.',err:'You need internet once to save this song',upd:'New version — tap to reload',decl:'AI Declaration',cons:'Consent: names are hidden; only an alias is shown.',off:'Offline-ready',saveall:'Save all songs',clear:'Clear saved data',a2h:'Add to Home Screen',and:'Android Chrome: menu ⋮ → Install app.',ios:'iPhone Safari: Share → Add to Home Screen.',ver:'Version',cited:'Cited in',none:'No results.',saved:'✓ saved',sound:'sound',tools:'Check the topic name against the curriculum guide.',cleared:'Cleared'}};
+STR.mix=STR.fil;const S=STR[L]||STR.fil;
+const $=s=>document.querySelector(s),ls={get(k,d){try{const v=localStorage.getItem(P+k);return v==null?d:JSON.parse(v)}catch(_){return d}},set(k,v){try{localStorage.setItem(P+k,JSON.stringify(v))}catch(_){}}};
+function h(t,a,...k){const e=document.createElement(t);for(const x in a||{}){if(x==='class')e.className=a[x];else if(x.startsWith('on'))e.addEventListener(x.slice(2),a[x]);else e.setAttribute(x,a[x])}
+ k.flat().forEach(c=>{if(c!=null&&c!==false)e.append(c.nodeType?c:document.createTextNode(c))});return e}
+const E=APP.entries,byId=Object.fromEntries(E.map(e=>[e.id,e])),tp=Object.fromEntries(APP.topics.map(t=>[t.id,t]));
+const hasSong=e=>e.song&&e.song.file,songs=E.filter(hasSong);document.title=M.title;$('#ttl').textContent=M.title;
+$('#d1').textContent=S.home;$('#d2').textContent=S.thinkers;$('#d3').textContent=S.about;
+// theme + font
+const sysDark=matchMedia('(prefers-color-scheme:dark)').matches;let theme=ls.get('theme',sysDark?'dark':'light'),fs=ls.get('fs',18);
+function ap(){document.documentElement.dataset.t=theme;document.documentElement.style.setProperty('--fs',fs+'px')}ap();
+$('#th').onclick=()=>{theme=theme==='dark'?'light':'dark';ls.set('theme',theme);ap()};
+$('#fm').onclick=()=>{fs=Math.max(14,fs-2);ls.set('fs',fs);ap()};$('#fp').onclick=()=>{fs=Math.min(28,fs+2);ls.set('fs',fs);ap()};$('#home').onclick=()=>location.hash='#/';
+// scene kit
+let sid=0;const PAL={dawn:['#f6c58b','#f3e2bd'],dusk:['#8a4b6b','#e9a36b'],night:['#142238','#3a4b6e'],earth:['#d9a45a','#f1dfb4'],water:['#4b86a8','#cfe6ea'],fire:['#b8401e','#f2b25c'],city:['#52607a','#c8c2b4'],garden:['#7fb069','#e9f1c9']};
+function scene(m,mo,seed){const id='g'+(++sid),p=PAL[m.palette]||PAL.earth,hu=m.hue||0,r=n=>{seed=(seed*9301+49297+n)%233280;return seed/233280};
+ let s=`<svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Procedural art"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${p[0]}"/><stop offset="1" stop-color="${p[1]}"/></linearGradient></defs><g style="filter:hue-rotate(${hu%20}deg)"><rect width="400" height="190" fill="url(#${id})"/>`;
+ for(let i=0;i<2;i++){let d='M0 190 L0 '+(120+i*25);for(let x=0;x<=400;x+=40)d+=` L${x} ${120+i*25-r(x)*50}`;s+=`<path d="${d} L400 190Z" fill="${i?'#3f5a2c':'#6b7f45'}" opacity="${.9-i*.1}"/>`}
+ mo.forEach((k,i)=>{const x=60+i*130+r(i)*30;
+  if(k==='tree')s+=`<g class="sway"><path d="M${x} 175 C${x+10} 140 ${x-12} 120 ${x+4} 95" stroke="#5a3b22" stroke-width="7" fill="none"/><path d="M${x+4} 95 q-30 -4 -40 14 M${x+4} 95 q30 -8 42 8 M${x+4} 95 q-4 -26 -22 -30 M${x+4} 95 q8 -24 28 -24" stroke="#2f6b2a" stroke-width="6" fill="none" stroke-linecap="round"/></g>`;
+  else if(k==='mountain')s+=`<path d="M${x-70} 150 L${x} 70 L${x+70} 150Z" fill="#5c6b5a"/><path d="M${x-14} 86 L${x} 70 L${x+14} 86Z" fill="#fffaf0"/>`;
+  else if(k==='path')s+=`<path d="M${x-20} 190 Q${x+30} 160 ${x} 140 T${x+30} 120" stroke="#f3e2bd" stroke-width="10" fill="none" stroke-linecap="round"/>`;
+  else if(k==='sun')s+=`<circle cx="${x}" cy="45" r="18" fill="#f6c453"/>`;else if(k==='moon')s+=`<circle class="tw" cx="${x}" cy="40" r="14" fill="#f6ecd9"/>`;
+  else if(k==='fire')s+=`<path class="tw" d="M${x} 170 q-14 -20 0 -40 q4 14 14 14 q6 12 -14 26Z" fill="#e8742a"/>`;
+  else if(k==='city')s+=`<path d="M${x-40} 150 v-40 h20 v-20 h18 v60Z M${x} 150 v-50 h24 v50Z" fill="#3a3a48"/>`;
+  else if(k==='house')s+=`<path d="M${x-20} 160 v-26 h40 v26Z" fill="#7a4f2e"/><path d="M${x-26} 136 L${x} 112 L${x+26} 136Z" fill="#a5381f"/>`;
+  else if(k==='book')s+=`<path d="M${x-22} 160 h22 v-24 h-22Z M${x} 160 h22 v-24 h-22Z" fill="#fffaf0" stroke="#2b1d14"/>`;
+  else if(k==='music note')s+=`<path d="M${x} 150 v-34 l16 -4 v28" stroke="#2b1d14" stroke-width="3" fill="none"/><circle cx="${x-4}" cy="150" r="5" fill="#2b1d14"/>`;
+  else if(k==='seed')s+=`<ellipse cx="${x}" cy="168" rx="6" ry="9" fill="#7a4f2e"/><path class="sway" d="M${x} 160 q0 -16 10 -18" stroke="#3f7a2e" stroke-width="3" fill="none"/>`;
+  else if(k==='river'||k==='waves')s+=`<path d="M0 170 q50 -10 100 0 t100 0 t100 0 t100 0" stroke="#cfe6ea" stroke-width="6" fill="none"/>`;
+  else if(k==='hands')s+=`<path d="M${x-20} 160 q20 -30 40 0Z" fill="#d9a37a"/>`});
+ return s+'</g></svg>'}
+const art=(e,c)=>{const d=h('div',{class:c});d.innerHTML=scene(e.mood||{},(e.mood&&e.mood.motifs)||[],e.id.split('').reduce((a,x)=>a+x.charCodeAt(0),7));return d};// trusted procedural SVG only, no student data
+const EMO={tree:'🌴',mountain:'⛰️',path:'🛤️',sun:'☀️',moon:'🌙',fire:'🔥',city:'🏙️',house:'🏠',book:'📖','music note':'🎵',seed:'🌱',river:'🌊',waves:'🌊',hands:'🤲'};
+// audio
+const au=new Audio();au.preload='none';let q=[],qi=-1,loop=ls.get('loop','off'),spd=1;const spds=[.75,1,1.25];
+const pos=ls.get('pos',{});function title(e){return e.song.title||e.title}
+function load(i,play){qi=i;const e=q[i];if(!e)return;au.src=e.song.file;au.preload='auto';const p=pos[e.id];if(p)au.addEventListener('loadedmetadata',()=>{au.currentTime=p},{once:true});
+ $('#mini').style.display='flex';$('#mt').textContent=title(e);if(play)au.play().catch(()=>toast(S.err));
+ if('mediaSession'in navigator){navigator.mediaSession.metadata=new MediaMetadata({title:title(e),artist:e.author.alias||'',album:M.title,artwork:[{src:'icon-512.png',sizes:'512x512',type:'image/png'}]});
+  navigator.mediaSession.setActionHandler('previoustrack',()=>step(-1));navigator.mediaSession.setActionHandler('nexttrack',()=>step(1))}}
+function step(d){if(!q.length)return;load((qi+d+q.length)%q.length,true)}
+function playE(id){q=songs.slice();load(q.findIndex(e=>e.id===id),true)}
+$('#pp').onclick=()=>{if(qi<0&&songs.length)return playE(songs[0].id);au.paused?au.play().catch(()=>toast(S.err)):au.pause()};
+$('#pv').onclick=()=>step(-1);$('#nx').onclick=()=>step(1);
+$('#lp').onclick=()=>{loop=loop==='off'?'one':loop==='one'?'all':'off';ls.set('loop',loop);lb()};function lb(){$('#lp').textContent=loop==='off'?'↻':loop==='one'?'↻1':'↻∞'}lb();
+$('#sp').onclick=()=>{spd=spds[(spds.indexOf(spd)+1)%3];au.playbackRate=spd;$('#sp').textContent=spd+'×'};
+$('#sk').oninput=e=>{if(au.duration)au.currentTime=au.duration*e.target.value/1000};
+au.onplay=()=>$('#pp').textContent='⏸';au.onpause=()=>$('#pp').textContent='▶';au.onerror=()=>toast(S.err);
+au.ontimeupdate=()=>{if(au.duration)$('#sk').value=au.currentTime/au.duration*1000;const e=q[qi];if(e){pos[e.id]=au.currentTime;ls.set('pos',pos);sync(e)}};
+au.onended=()=>{if(loop==='one'){au.currentTime=0;au.play()}else if(loop==='all'||qi<q.length-1)step(1)};
+function sync(e){const s=e.song.sync;if(!s||!s.length)return;document.querySelectorAll('.lyr p[data-i]').forEach(p=>p.classList.toggle('cur',+p.dataset.i===s.filter(x=>x.t<=au.currentTime).length-1))}
+function toast(m,fn){const t=$('#toast');t.textContent=m;t.style.display='block';t.onclick=fn||null;if(!fn)setTimeout(()=>t.style.display='none',3500)}
+// views
+const sect=(t,open,...k)=>{const d=h('details',null,h('summary',null,t),h('div',{class:'in'},k));if(open)d.open=true;return d};
+const aiBadge=e=>{const a=e.ai||{};return h('a',{href:'#/about',class:'badge'+(a.used?'':' q')},a.used?S.ai:S.aiu)};
+const paras=(arr,drop)=>h('div',{class:'read'},arr.map((t,i,arr)=>t.startsWith('## ')?h('h4',null,t.slice(3)):h('p',{class:drop&&i===arr.findIndex(x=>x.length>200)?'dc':''},t)));
+let F={topic:'',song:false,q:''};
+function tiles(box){box.textContent='';const q=F.q.toLowerCase();let r=E.filter(e=>(!F.topic||e.topic===F.topic)&&(!F.song||hasSong(e))&&(!q||JSON.stringify([e.title,e.author.alias,e.philosophy.keyIdea,e.philosophy.lens&&e.philosophy.lens.who,e.song.lyrics]).toLowerCase().includes(q)));
+ if(!r.length)box.append(h('p',{class:'mute'},S.none));const g={};r.forEach(e=>(g[(tp[e.topic]||{}).name||'']=g[(tp[e.topic]||{}).name||'']||[]).push(e));
+ Object.keys(g).forEach(k=>{box.append(h('h3',null,k));g[k].slice(0,20).forEach(e=>box.append(h('a',{class:'card tile',href:'#/e/'+e.id},art(e,'art'),h('div',{class:'t'},h('h3',null,((EMO[(e.mood.motifs||[])[0]]||'📖')+' '+e.title)),h('div',{class:'mute'},e.author.alias+(e.author.section?' · '+e.author.section:'')),h('div',{class:'mute'},((e.philosophy.lens&&e.philosophy.lens.who)||[]).join(', '))))))})}
+function Home(){const box=h('div'),ch=h('div',{class:'chips'});
+ const chip=(l,f)=>h('button',{'aria-pressed':String(f()),onclick:ev=>{go();ev.target.setAttribute('aria-pressed',String(f()))}},l);
+ const mk=()=>{ch.textContent='';ch.append(h('button',{'aria-pressed':String(!F.topic&&!F.song),onclick:()=>{F.topic='';F.song=false;mk();tiles(box)}},S.all));
+  APP.topics.forEach(t=>ch.append(h('button',{'aria-pressed':String(F.topic===t.id),onclick:()=>{F.topic=t.id;mk();tiles(box)}},t.name)));
+  if(songs.length)ch.append(h('button',{'aria-pressed':String(F.song),onclick:()=>{F.song=!F.song;mk();tiles(box)}},'🎵 '+S.song))};mk();
+ const sr=h('input',{type:'search',placeholder:S.search,'aria-label':S.search,oninput:ev=>{F.q=ev.target.value;tiles(box)}});sr.value=F.q;
+ tiles(box);return h('div',null,h('div',{class:'card cover'},h('div',{class:'serif mute'},M.school),h('h1',null,M.title),h('div',null,M.subtitle),h('p',null,E.length+' '+S.entries+' · '+songs.length+' '+S.songs),h('span',{class:'badge'},S.ai+' / '+S.aiu)),
+  songs.length?h('div',{class:'card'},h('button',{class:'gold',onclick:()=>{q=songs.slice();load(0,true)}},'▶ '+S.play)):null,sr,ch,box)}
+function Entry(id){const e=byId[id];if(!e)return Home();const p=e.philosophy||{},l=p.lens,i=E.indexOf(e);ls.set('last',id);const out=h('div');
+ out.append(h('div',{class:'hero'},(()=>{const a=art(e,'art');a.style.height='100%';return a})()),h('div',{class:'kick'},((tp[e.topic]||{}).name||'')+(e.week?' · Linggo '+e.week:'')),h('h2',{style:'font-size:30px;margin:4px 0'},e.title),h('div',{class:'mute'},e.author.alias+(e.author.section?' · '+e.author.section:'')),aiBadge(e));
+ if(p.keyIdea)out.append(h('blockquote',{class:'quote'},p.keyIdea));
+ if(hasSong(e)){const lyr=h('div',{class:'lyr'});let n=0;(e.song.lyrics||[]).forEach(s=>{lyr.append(h('h4',null,s.section));s.lines.forEach(x=>lyr.append(h('p',{'data-i':n++},x)))});
+  out.append(sect('🎵 '+S.song,true,h('button',{class:'gold',onclick:()=>playE(e.id)},'▶ '+title(e)),h('div',{class:'mute'},[e.song.genre,e.song.credit].filter(Boolean).join(' · ')),lyr))}
+ const th=h('div');if(p.firstThought)th.append(h('h3',null,S.first),paras([p.firstThought]));
+ if((p.dialogue||[]).length){th.append(h('h3',null,S.dlg));p.dialogue.forEach(d=>th.append(h('div',{class:'bub '+d.who},h('small',null,d.who==='ai'?S.aib:S.stu),d.text)))}
+ if((p.reflection||[]).length)th.append(h('h3',null,S.fin),paras(p.reflection,true));
+ if(th.childNodes.length)out.append(sect('✍️ '+S.think,true,th));
+ if(M.lens&&l)out.append(sect('🔎 '+S.lens,false,h('div',{class:'bridge'},h('div',null,S.story),h('div',null,'→ '+S.idea),h('div',null,'→ '+S.you)),
+  h('p',{class:'kick'},l.phil+' · '+l.topic),l.who.map(w=>h('div',{class:'card'},h('b',null,w),h('div',null,(APP.thinkers||{})[w]||''))),h('p',null,l.idea),h('p',null,h('b',null,S.why+': '),l.rationale),h('p',null,h('b',null,S.try+': '),l.tryIt),
+  l.inferred?h('span',{class:'badge q'},S.interp):null,h('p',{class:'mute'},S.tools)));
+ out.append(h('div',{class:'nav'},h('button',{onclick:()=>location.hash='#/e/'+E[(i-1+E.length)%E.length].id},'← '+S.prev),h('button',{onclick:()=>location.hash='#/e/'+E[(i+1)%E.length].id},S.next+' →')));return out}
+function Thinkers(){const t=h('table',null,Object.keys(APP.thinkers).map(k=>h('tr',null,h('td',null,h('b',null,k)),h('td',null,APP.thinkers[k],h('div',{class:'mute'},S.cited+': ',E.filter(e=>((e.philosophy.lens||{}).who||[]).includes(k)).map(e=>h('a',{href:'#/e/'+e.id},e.title+' ')))))));return h('div',{class:'card'},h('h2',null,S.thinkers),t)}
+async function cached(){try{const c=await caches.open(M.id+'-audio-v1');return(await c.keys()).length}catch(_){return 0}}
+function About(){const pr=h('i'),st=h('p',{class:'mute'},''),d=h('div');
+ d.append(h('div',{class:'card'},h('h2',null,S.decl),h('p',{class:'read'},APP.declaration.text),h('p',null,S.cons)),h('div',{class:'card'},h('p',null,M.school),h('p',null,M.teacher),h('p',null,S.ver+' '+M.version+' · '+M.updated),h('p',null,(navigator.onLine?'Online':'Offline')+' · '+S.off+': '+('serviceWorker'in navigator&&navigator.serviceWorker.controller?'✓':'…'))));
+ if(songs.length)d.append(h('div',{class:'card'},h('button',{class:'gold',onclick:async()=>{const c=await caches.open(M.id+'-audio-v1');let n=0;for(const e of songs){try{await c.add(e.song.file)}catch(_){}pr.style.width=(++n/songs.length*100)+'%'}st.textContent=n+'/'+songs.length+' '+S.saved}},S.saveall),h('div',{class:'prog'},pr),st));
+ d.append(h('div',{class:'card'},h('button',{onclick:async()=>{try{for(const k of await caches.keys())if(k.startsWith(M.id+'-audio'))await caches.delete(k);Object.keys(localStorage).filter(k=>k.startsWith(P)).forEach(k=>localStorage.removeItem(k))}catch(_){}toast(S.cleared)},class:''},S.clear)),h('div',{class:'card'},h('h3',null,S.a2h),h('p',null,S.and),h('p',null,S.ios)));return d}
+function route(){const a=$('#app'),r=location.hash.replace(/^#\/?/,'').split('/');a.textContent='';let v;
+ if(r[0]==='e'||r[0]==='lens')v=Entry(r[1]);else if(r[0]==='thinkers')v=Thinkers();else if(r[0]==='about')v=About();else v=Home();
+ a.append(v);if(r[0]==='lens'){const d=a.querySelectorAll('details')[1];if(d)d.open=true}
+ ['d1','d2','d3'].forEach((x,i)=>$('#'+x).classList.toggle('on',(['','thinkers','about'][i])===(r[0]==='e'||r[0]==='lens'?'':r[0])));scrollTo(0,0)}
+addEventListener('hashchange',route);
+if(!location.hash&&ls.get('last')&&byId[ls.get('last')])location.hash='#/e/'+ls.get('last');route();
+addEventListener('scroll',()=>{const m=document.documentElement;$('#bar').style.width=(scrollY/Math.max(1,m.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').then(reg=>{
+ const w=x=>x.addEventListener('statechange',()=>{if(x.state==='installed'&&navigator.serviceWorker.controller)toast(S.upd,()=>x.postMessage('SKIP_WAITING'))});
+ if(reg.waiting&&navigator.serviceWorker.controller)toast(S.upd,()=>reg.waiting.postMessage('SKIP_WAITING'));reg.addEventListener('updatefound',()=>w(reg.installing));
+ if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}).catch(()=>{}));
+let rl=0;navigator.serviceWorker&&navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!rl){rl=1;location.reload()}});
+</script></body></html>
